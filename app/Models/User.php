@@ -3,9 +3,11 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use App\Models\Matche;
+use App\Models\District;
+use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
@@ -21,8 +23,19 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'town_hall_level',
+        'district_id'
     ];
 
+    public function district()
+    {
+        return $this->belongsTo(District::class);
+    }
+
+    public function matches()
+    {
+        return $this->hasMany(Matche::class);
+    }
     /**
      * The attributes that should be hidden for serialization.
      *
