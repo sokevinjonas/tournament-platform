@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('tournaments', function (Blueprint $table) {
             $table->id();
+            $table->string('name'); // Nom de la phase (e.g., "Tournoi Elimination")
+            $table->foreignId('district_id')->constrained()->onDelete('cascade'); // Association avec un District
+            $table->integer('round'); // Numéro du tour (e.g., 1 pour éliminatoires, 2 pour quart, etc.)
             $table->timestamps();
         });
     }

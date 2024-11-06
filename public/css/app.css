@@ -1,0 +1,87 @@
+:root {
+    --primary-dark: #1a1a2e;
+    --accent-gold: #ffd700;
+    --accent-silver: #c0c0c0;
+    --battle-red: #8b0000;
+}
+
+body {
+    background-color: var(--primary-dark);
+    color: #fff;
+    font-family: "Roboto", sans-serif;
+}
+
+.navbar {
+    background-color: rgba(26, 26, 46, 0.95);
+    border-bottom: 2px solid var(--accent-gold);
+}
+
+.navbar-brand {
+    font-size: 1.8rem;
+    color: var(--accent-gold) !important;
+}
+
+.nav-link {
+    color: #fff !important;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: var(--accent-gold) !important;
+}
+
+.hero-section {
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+        url("/api/placeholder/1920/1080") no-repeat center center;
+    background-size: cover;
+    padding: 150px 0;
+    text-align: center;
+}
+
+.hero-title {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    color: var(--accent-gold);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.cta-button {
+    background-color: var(--battle-red);
+    border: 2px solid var(--accent-gold);
+    color: var(--accent-gold);
+    padding: 15px 40px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: var(--accent-gold);
+    color: var(--battle-red);
+    transform: scale(1.05);
+}
+
+.feature-card {
+    background-color: rgba(26, 26, 46, 0.9);
+    border: 1px solid var(--accent-silver);
+    transition: transform 0.3s ease;
+    color: #fff;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+}
+
+.feature-icon {
+    font-size: 2.5rem;
+    color: var(--accent-gold);
+    margin-bottom: 1rem;
+}
+
+.feature-title {
+    color: var(--accent-gold);
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
