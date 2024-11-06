@@ -13,10 +13,14 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
-            $table->string('password')->nullable();
+            $table->string('name'); // Nom du joueur
+            $table->string('email')->unique(); // Email unique pour chaque joueur
+            $table->string('password'); // Mot de passe pour se connecter à la plateforme
+            $table->integer('town_hall_level'); // Niveau de l’Hôtel de Ville
+            $table->integer('victories')->default(0); // Nombre de victoires
+            $table->integer('stars')->default(0); // Nombre d'étoiles gagnées
+            $table->string('clan_name')->nullable(); // Nom du clan (facultatif)
+            $table->string('profile_image')->nullable(); // URL de l'image de profil du joueur
             $table->rememberToken();
             $table->timestamps();
         });

@@ -11,32 +11,29 @@ use App\Models\District;
 class DistrictAssignmentService
 {
 
-    // Logique pour assigner un district à un joueur
-    // basée sur son niveau d'HDV et le nombre de joueurs par district
-    public function assignDistrict(User $user)
+    /**
+     * Assigner un joueur à un district en fonction de son niveau HDV.
+     *
+     * @param User $user
+     * @return District|null
+     */
+    public function assignToDistrict(User $user)
     {
-        $townHallLevel = $user->town_hall_level;
-
-        // Trouver un district approprié basé sur le niveau HDV
-        $district = District::where('min_town_hall_level', '<=', $townHallLevel)
-            ->where('max_town_hall_level', '>=', $townHallLevel)
-            ->withCount('users')
-            ->having('users_count', '<', 50) // Maximum 50 joueurs par district
-            ->orderBy('users_count', 'asc')
+        // On récupère le district correspondant au niveau HDV du joueur
+        $district = District::where('level', $user->town_hall_level)
+            ->where('participants_count', '<', District::MAX_PARTICIPANTS)
             ->first();
 
-        if (!$district) {
-            // Créer un nouveau district si nécessaire
-            $district = District::create([
-                'name' => 'District ' . Str::random(5),
-                'min_town_hall_level' => $townHallLevel - 1,
-                'max_town_hall_level' => $townHallLevel + 1
-            ]);
+        // Si un district est trouvé avec de la place disponible
+        if ($district) {
+            $district->participants_count += 1;
+            $district->save();
+
+            // Ajouter le joueur au district (ex : via une relation many-to-many)
+            $district->users()->attach($user->id);
+            return $district;
         }
 
-        $user->district()->associate($district);
-        $user->save();
-
-        return $district;
+        return null;
     }
 }

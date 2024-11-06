@@ -1,66 +1,69 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# 🛡️ Clash of Clans Tournament Platform
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Bienvenue sur la plateforme de tournoi Clash of Clans, une application Laravel pour organiser des compétitions de Clash of Clans où les joueurs peuvent s'inscrire, être répartis dans des districts en fonction de leur niveau, et progresser à travers des étapes éliminatoires jusqu'à la finale.
 
-## About Laravel
+## 📝 Table des matières
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+-   [À propos du projet](#à-propos-du-projet)
+-   [Fonctionnalités](#fonctionnalités)
+-   [Technologies utilisées](#technologies-utilisées)
+-   [Prérequis](#prérequis)
+-   [Installation](#installation)
+-   [Utilisation](#utilisation)
+-   [Architecture de la base de données](#architecture-de-la-base-de-données)
+-   [Contribuer](#contribuer)
+-   [Licence](#licence)
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## À propos du projet
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+Ce projet est une plateforme permettant l'organisation de mini-tournois pour le jeu **Clash of Clans**. Chaque tournoi regroupe les joueurs par niveau d'Hôtel de Ville dans des "Districts" et les fait s'affronter à travers des phases de tournoi éliminatoires. À chaque étape, les meilleurs joueurs avancent, et le joueur gagnant de chaque District devient le **Héros**.
 
-## Learning Laravel
+## Fonctionnalités
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+-   **Invitation à la Guerre** : Les joueurs remplissent un formulaire d'inscription pour rejoindre un tournoi.
+-   **Répartition des Guerriers** : Les joueurs sont assignés à des districts en fonction de leur niveau de HDV (Hôtel de Ville).
+-   **Districts** : Les joueurs sont regroupés dans des districts selon leur niveau de HDV (HDV 10, HDV 11, etc.), chaque district ayant un maximum de 20 joueurs.
+-   **Tournoi** : Les joueurs avancent à travers des étapes éliminatoires (qualification, quarts de finale, demi-finale, finale).
+-   **Classement** : Les joueurs sont classés selon leurs victoires et le nombre d'étoiles gagnées.
+-   **Héros** : Le gagnant final de chaque district est couronné Héros.
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+## Technologies utilisées
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+-   **Backend** : PHP, [Laravel](https://laravel.com)
+-   **Frontend** : HTML, CSS, [Bootstrap](https://getbootstrap.com)
+-   **Base de données** : MySQL
 
-## Laravel Sponsors
+## Prérequis
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+-   **PHP** version 8.x ou plus
+-   **Composer**
+-   **Node.js** et **npm**
+-   **MySQL** pour la base de données
 
-### Premium Partners
+## Installation
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+1. **Cloner le dépôt**
 
-## Contributing
+    ```bash
+    git clone https://github.com/votre_nom_utilisateur/nom_du_projet.git
+    cd nom_du_projet
+    ```
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+2. **Configurer l'environnement**
 
-## Code of Conduct
+    ```bash
+    cp .env.example .env
+    php artisan key:generate
+    ```
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+3. **Migrer la base de données**
 
-## Security Vulnerabilities
+    ```bash
+    php artisan migrate
+    ```
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+4. **Lancer le serveur**
 
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+    ```bash
+    php artisan serve
+    ```
