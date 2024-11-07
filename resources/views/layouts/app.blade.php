@@ -1,4 +1,3 @@
-// Layout principal - resources/views/layouts/app.blade.php
 <!DOCTYPE html>
 <html lang="fr">
 <head>

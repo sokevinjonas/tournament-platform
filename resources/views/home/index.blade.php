@@ -15,34 +15,32 @@
         </div>
     </section>
     <!-- Features Section -->
-    <section class="py-5">
-        <div class="container">
-            <div class="row g-4">
-                <div class="col-md-4">
-                    <div class="card feature-card h-100 p-4">
-                        <div class="card-body text-center">
-                            <i class="fas fa-fort-awesome feature-icon"></i>
-                            <h3 class="feature-title">Rejoindre un District</h3>
-                            <p class="card-text">Intégrez l'un de nos Districts exclusifs et affrontez des adversaires de votre niveau.</p>
-                        </div>
+    <section class="container">
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="card feature-card h-100 p-4">
+                    <div class="card-body text-center">
+                        <i class="fas fa-fort-awesome feature-icon"></i>
+                        <h3 class="feature-title">Rejoindre un District</h3>
+                        <p class="card-text">Intégrez l'un de nos Districts exclusifs et affrontez des adversaires de votre niveau.</p>
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <div class="card feature-card h-100 p-4">
-                        <div class="card-body text-center">
-                            <i class="fas fa-users-crown feature-icon"></i>
-                            <h3 class="feature-title">Répartition des Guerriers</h3>
-                            <p class="card-text">Participez à la répartition stratégique et découvrez votre place dans la bataille.</p>
-                        </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card feature-card h-100 p-4">
+                    <div class="card-body text-center">
+                        <i class="fas fa-users-crown feature-icon"></i>
+                        <h3 class="feature-title">Répartition des Guerriers</h3>
+                        <p class="card-text">Participez à la répartition stratégique et découvrez votre place dans la bataille.</p>
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <div class="card feature-card h-100 p-4">
-                        <div class="card-body text-center">
-                            <i class="fas fa-trophy feature-icon"></i>
-                            <h3 class="feature-title">Tournois Épiques</h3>
-                            <p class="card-text">Affrontez les meilleurs guerriers et gravissez les échelons vers la gloire.</p>
-                        </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card feature-card h-100 p-4">
+                    <div class="card-body text-center">
+                        <i class="fas fa-trophy feature-icon"></i>
+                        <h3 class="feature-title">Tournois Épiques</h3>
+                        <p class="card-text">Affrontez les meilleurs guerriers et gravissez les échelons vers la gloire.</p>
                     </div>
                 </div>
             </div>
