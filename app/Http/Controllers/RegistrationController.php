@@ -8,6 +8,6 @@ class RegistrationController extends Controller
 {
     public function create()
     {
-        return view('registration.form');
+        return view('registration.register');
     }
 }

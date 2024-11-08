@@ -10,4 +10,13 @@ class HomeController extends Controller
     {
         return view('home.index');
     }
+    public function dashboard(){
+        return view('home.dashboard');
+    }
+    public function tournois(){
+        return view('tournaments.index');
+    }
+    public function classement(){
+        return view('classement.index');
+    }
 }

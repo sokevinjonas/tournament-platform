@@ -3,11 +3,15 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use App\Models\Admin;
+use App\Models\Joueur;
 use App\Models\Matche;
+use App\Models\District;
+use App\Models\Moderateur;
+use App\Models\UserGameStat;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use App\Models\District;
 
 class User extends Authenticatable
 {
@@ -19,8 +23,28 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
-    protected $fillable = ['name', 'email', 'password'];
+    protected $fillable = ['name', 'email', 'password', 'profile_image', 'type'];
 
+     // Méthode de création statique pour chaque type d'utilisateur
+     public static function createUser(array $attributes)
+     {
+         // Crée une instance du bon modèle selon le type
+         switch ($attributes['type']) {
+             case 'Admin':
+                 return Admin::create($attributes);
+             case 'Moderateur':
+                 return Moderateur::create($attributes);
+             case 'Joueur':
+                 return Joueur::create($attributes);
+             default:
+                 throw new \Exception("Type d'utilisateur non valide");
+         }
+     }
+
+    public function gameStats()
+    {
+        return $this->hasMany(UserGameStat::class);
+    }
     /**
      * Tous les matchs où l'utilisateur est Joueur 1.
      */
