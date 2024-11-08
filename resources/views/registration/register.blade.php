@@ -60,43 +60,51 @@
                     </ul>
                   </div>
 
-                  <form action="{{route('joueur.store')}}" method="POST" class="row g-3 needs-validation" novalidate>
-                    @method('POST')
+                  <form action="{{ route('joueur.store') }}" method="POST" class="row g-3">
+                    @csrf
+
                     <!-- Champ Email -->
                     <div class="col-12">
-                      <label for="yourEmail" class="form-label">Email</label>
-                      <div class="input-group has-validation">
-                        <span class="input-group-text" id="inputGroupPrepend">@</span>
-                        <input type="email" name="email" class="form-control" id="yourEmail" required>
-                        <div class="invalid-feedback">Veuillez entrer votre email.</div>
-                      </div>
+                        <label for="email" class="form-label">Email</label>
+                        <div class="input-group">
+                            <input type="email" name="email" class="form-control @error('email') is-invalid @enderror" id="email" value="{{ old('email') }}">
+                            @error('email')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                            @enderror
+                        </div>
                     </div>
 
                     <!-- Champ Mot de passe -->
                     <div class="col-12">
-                      <label for="yourPassword" class="form-label">Mot de passe</label>
-                      <input type="password" name="password" class="form-control" id="yourPassword" required>
-                      <div class="invalid-feedback">Veuillez entrer votre mot de passe.</div>
+                        <label for="password" class="form-label">Mot de passe</label>
+                        <input type="password" name="password" class="form-control @error('password') is-invalid @enderror" id="password">
+                        @error('password')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror
                     </div>
+
+                    <!-- Confirmation du Mot de passe -->
                     <div class="col-12">
-                        <label for="yourPassword" class="form-label">Confirmer Mot de passe</label>
-                        <input type="password" name="password_confirmed" class="form-control" id="yourPassword" required>
-                        <div class="invalid-feedback">Veuillez confirmer votre mot de passe.</div>
-                      </div>
+                        <label for="password_confirmation" class="form-label">Confirmer Mot de passe</label>
+                        <input type="password" name="password_confirmation" class="form-control @error('password_confirmation') is-invalid @enderror" id="password_confirmation">
+                        @error('password_confirmation')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror
+                    </div>
 
                     <!-- Se souvenir de moi -->
                     <div class="col-12">
-                      <div class="form-check">
-                        <input class="form-check-input" type="checkbox" name="remember" value="true" id="rememberMe">
-                        <label class="form-check-label" for="rememberMe">Se souvenir de moi</label>
-                      </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="remember" value="true" id="rememberMe">
+                            <label class="form-check-label" for="rememberMe">Se souvenir de moi</label>
+                        </div>
                     </div>
 
-                    <!-- Bouton de connexion -->
+                    <!-- Bouton d'inscription -->
                     <div class="col-12">
-                      <button class="btn btn-primary w-100" type="submit">S'inscrire</button>
+                        <button class="btn btn-primary w-100" type="submit">S'inscrire</button>
                     </div>
-                  </form>
+                </form>
 
                 </div>
               </div>

@@ -18,15 +18,20 @@ class JoueurController extends Controller
     public function store(RegistrationRequest $request)
     {
         // Les données sont déjà validées ici
-        dd($request->all());
         $joueur = $this->userService->storeUser($request->validated(), 'Joueur');
 
         if (!$joueur) {
             return redirect()->back()->with('error', 'Erreur lors de l’inscription. Veuillez réessayer.');
         }
 
-        // auth()->login($joueur);
+        // // auth()->login($joueur);
         return redirect()->route('dashboard')->with('success', 'Inscription réussie !');
     }
+
+    public function test()
+{
+    return 'Le contrôleur est accessible';
+}
+
 
 }

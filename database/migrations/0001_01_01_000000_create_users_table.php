@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('email')->unique(); // Email unique pour chaque joueur
             $table->string('password'); // Mot de passe pour se connecter à la plateforme
             $table->string('profile_image')->nullable(); // URL de l'image de profil du joueur
-            $table->string('type'); // Type d'utilisateur : Admin, Moderateur, Joueur
+            $table->enum('role', ['admin', 'moderateur', 'joueur']); // Type d'utilisateur : Admin, Moderateur, Joueur
             $table->rememberToken();
             $table->timestamps();
         });

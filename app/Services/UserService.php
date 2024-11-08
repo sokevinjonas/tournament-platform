@@ -10,7 +10,7 @@ use Exception;
 class UserService
 {
     // Création d'un utilisateur (Joueur, Moderateur, ou Admin)
-    public function storeUser(array $data, string $role)
+    public function storeUser(User $data)
     {
         try {
             $user = User::create([
@@ -18,7 +18,7 @@ class UserService
                 'email' => $data['email'],
                 'password' => Hash::make($data['password']),
                 'profile_image' => $data['profile_image'] ?? null,
-                'type' => $role,
+                'role' => $data['role'],
             ]);
 
             return $user;

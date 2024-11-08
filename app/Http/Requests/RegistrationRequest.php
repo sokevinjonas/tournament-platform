@@ -21,6 +21,7 @@ class RegistrationRequest extends FormRequest
      */
     public function rules(): array
     {
+        // dd($this->all());
         return [
             'name' => 'required|string|max:255',
             'email' => 'required|email|unique:users,email|max:255',

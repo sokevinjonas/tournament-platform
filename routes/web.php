@@ -17,4 +17,5 @@ Route::get('/register/confirmation', [RegistrationController::class, 'confirmati
 
 
 //Logique pour inscrire un Joueur
-Route::post('joueur_create', [JoueurController::class, 'store'])->name('joueur.store');
+Route::post('joueur-create', [JoueurController::class, 'store'])->name('joueur.store');
+Route::get('/test-joueur', [JoueurController::class, 'test'])->name('joueur.test');

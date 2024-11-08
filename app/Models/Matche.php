@@ -8,7 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Matche extends Model
 {
-    use HasFactory;
 
     protected $fillable = ['tournament_id', 'player1_id', 'player2_id', 'player1_score', 'player2_score', 'winner_id'];
 
