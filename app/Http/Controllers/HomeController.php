@@ -19,4 +19,7 @@ class HomeController extends Controller
     public function classement(){
         return view('classement.index');
     }
+    public function profile(){
+        return view('profile.index');
+    }
 }

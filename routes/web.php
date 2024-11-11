@@ -10,17 +10,23 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 
 // Routes protégées pour les utilisateurs connectés
 Route::middleware(['auth'])->group(function () {
+    //Route pour dashboard admins
     Route::get('/dashboard', [HomeController::class, 'dashboard'])->name('dashboard');
     Route::get('/tournois', [HomeController::class, 'tournois'])->name('tournois');
     Route::get('/classement', [HomeController::class, 'classement'])->name('classement');
+    Route::get('/profile', [HomeController::class, 'profile'])->name('profile');
+
 
 });
-// Routes pour les joueurs
-Route::post('joueur-create', [JoueurController::class, 'store'])->name('joueur.store');
-Route::get('/test-joueur', [JoueurController::class, 'test'])->name('joueur.test');
-Route::post('/connecter', [JoueurController::class, 'login'])->name('auth');
-// Routes d'inscription (accessibles par tous)
-Route::get('/register', [RegistrationController::class, 'create'])->name('registration.create');
-Route::get('/me-connecter', [RegistrationController::class, 'loginForm'])->name('login');
-Route::post('/register', [RegistrationController::class, 'store'])->name('registration.store');
-Route::get('/register/confirmation', [RegistrationController::class, 'confirmation'])->name('registration.confirmation');
+
+// Routes non protégées pour les utilisateurs connectés
+Route::middleware(['guest'])->group(function () {
+    //Route pour les pages inscriptions et auth
+    Route::get('/register', [RegistrationController::class, 'create'])->name('registration.create');
+    Route::get('/me-connecter', [RegistrationController::class, 'loginForm'])->name('login');
+
+    //Route pour les pages logiques inscriptions et auth
+    Route::post('register-create', [JoueurController::class, 'store'])->name('joueur.store');
+    Route::post('/connecter', [JoueurController::class, 'login'])->name('auth');
+
+});

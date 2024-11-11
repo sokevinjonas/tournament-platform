@@ -12,7 +12,7 @@
 
           <!-- Mon Profil -->
           <li class="nav-item">
-            <a class="nav-link collapsed" href="./profile.html">
+            <a class="nav-link collapsed" href="{{route('profile')}}">
               <i class="bi bi-person-circle"></i>
               <span>Mon Profil</span>
             </a>

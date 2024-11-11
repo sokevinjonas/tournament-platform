@@ -13,6 +13,7 @@ class UserService
     public function storeUser(array $data, $role)
     {
         try {
+            $data['role'] = $role;
             $user = User::create($data);
             // dd($user);
             return $user;
