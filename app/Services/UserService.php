@@ -10,20 +10,15 @@ use Exception;
 class UserService
 {
     // Création d'un utilisateur (Joueur, Moderateur, ou Admin)
-    public function storeUser(User $data)
+    public function storeUser(array $data, $role)
     {
         try {
-            $user = User::create([
-                'name' => $data['name'],
-                'email' => $data['email'],
-                'password' => Hash::make($data['password']),
-                'profile_image' => $data['profile_image'] ?? null,
-                'role' => $data['role'],
-            ]);
-
+            $user = User::create($data);
+            // dd($user);
             return $user;
         } catch (Exception $e) {
             Log::error("Erreur lors de la création de l'utilisateur: " . $e->getMessage());
+            // dd($e->getMessage());
             return null;
         }
     }

@@ -23,7 +23,7 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
-    protected $fillable = ['name', 'email', 'password', 'profile_image', 'type'];
+    protected $fillable = ['name', 'email', 'password', 'profile_image', 'role'];
 
      // Méthode de création statique pour chaque type d'utilisateur
      public static function createUser(array $attributes)
